@@ -15,7 +15,10 @@ public class TimeScheduler {
     private final CurrentTimeBacklog backlog;
     private final BacklogFlusher flusher;
 
-    @Scheduled(fixedRateString = "${scheduler.tick-rate-ms}")
+    @Scheduled(
+            fixedRateString = "${scheduler.tick-rate-ms}",
+            scheduler       = "virtualSingleThreadScheduler"
+    )
     public void tick() {
         backlog.enqueueOrThrow(Instant.now());
         flusher.flushAsync();
