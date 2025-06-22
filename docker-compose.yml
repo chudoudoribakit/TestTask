@@ -1,0 +1,10 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: leon_db
+      POSTGRES_USER: leon_username
+      POSTGRES_PASSWORD: leon_password
+    ports:
+      - "5432:5432"

@@ -1,0 +1,27 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/leon_db
+    username: leon_username
+    password: leon_password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        jdbc:
+          batch_size: 10
+        format_sql: true
+        show_sql: true
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+scheduler:
+  tick-rate-ms: 1000
+
+test_leon:
+    max-capacity: 10_000
